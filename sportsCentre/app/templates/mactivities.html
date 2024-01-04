@@ -1,0 +1,67 @@
+{% extends "mbase.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href={{ url_for('static', filename='css/table.css') }} />
+
+  <!-- table for activities -->
+<div>	
+	<table border="1" class="center">
+		<thead>  
+		<tr>
+			<th>Facility</th>
+			<th>Activity</th>
+			<th>Price</th>
+		</tr>
+		</thead>
+
+	<tbody>		
+		<!-- Display the data in each row of the table -->
+			{% for data in result %}	
+			{% for row in data %}
+		<tr>
+			<td style="padding-bottom: 3px; padding-top: 5px; padding-left: 35px;">
+				{{row[0]}}
+			</td>
+			<td style="padding-bottom: 3px; padding-top: 5px; padding-left: 35px;">
+				{{row[1]}}
+			</td>
+			<td style="padding-bottom: 3px; padding-top: 5px; padding-left: 35px;">
+				{{row[2]}}
+			</td>
+			<td style="padding-bottom: 3px; padding-top: 5px;">
+				<button class="btn btn-outline-light btn-dark" onclick="deleteActivity('{{ row[1] }}')">Delete</button>
+			</td>
+		</tr>
+		{% endfor %}
+		{% endfor %}
+	</tbody>
+	</table>
+</div>
+<script>
+	function deleteActivity(activityName) {
+		if (confirm('Are you sure you want to delete this activity?')) {
+			fetch('/Deletea', {
+				method: 'POST',
+				body: JSON.stringify({activityName: activityName}),
+				headers: {
+					'Content-Type': 'application/json',
+					'X-CSRFToken': '{{ csrf_token }}'
+				}
+			})
+			.then(response => {
+				if (response.status === 200) {
+					location.reload();
+				} else {
+					alert('Error: Unable to delete activity');
+				}
+			})
+			.catch(error => {
+				console.error('Error:', error);
+				alert('Error: Unable to delete activity');
+			});
+		}
+	}
+	</script>
+	
+{% endblock %}

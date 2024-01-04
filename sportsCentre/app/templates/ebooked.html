@@ -1,0 +1,73 @@
+{% extends "ebase.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href={{ url_for('static', filename='css/table.css') }} />
+<div>
+<center>
+    <p><span style="font-size:25px"><Strong>Your Bookings:</Strong></p>
+          
+    </center>
+</div>
+<!-- id="data" class="table table-striped"
+style="margin-top:0px; margin-left:100px;" -->
+<!-- table for my bookings -->
+  <div>
+	<table  border="1" class="center">
+		<thead class="thead">  
+		<tr>
+            <th>Facility</th>
+            <th>Activity</th>
+            <th>Day</th>
+            <th>Start session</th>
+            <th>End session</th>
+		</tr>
+		</thead>
+
+		<tbody>
+	{% for data in bookings %}
+      {% for row in data %}
+      <tr>
+        <td style="padding-bottom: 3px; padding-top: 5px; padding-left: 35px;">
+            {{row[1]}}
+        </td>
+        <td style="padding-bottom: 3px; padding-top: 5px; padding-left: 35px;">
+            {{row[2]}}
+        </td>
+        <td style="padding-bottom: 3px; padding-top: 5px; padding-left: 35px;">
+            {{row[3]}}
+        </td>
+        <td style="padding-bottom: 3px; padding-top: 5px; padding-left: 35px;">
+            {{row[4]}}
+        </td>
+        <td style="padding-bottom: 3px; padding-top: 5px; padding-left: 35px;">
+            {{row[5]}}
+        </td>
+        <td style="padding-bottom: 3px; padding-top: 5px;">
+            <form action="{{ url_for('main.EDeletebooking', bookingId=row[0]) }}" method="post">
+            <input type="submit" class="btn btn-outline-light btn-dark" value="Delete">
+          </form>
+        </td>
+    </tr>
+      {% endfor %}
+      {% endfor %}
+	</tbody>
+	</table>
+</div>
+
+<div>
+	<center>
+		<p><span style="font-size:25px"><Strong>Check our memberships!</Strong></p>
+			<a href="/membership" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Membership</a>
+			<br>
+		<p><span style="font-size:25px"><Strong>Book another session today!</Strong></p>
+			<a href="/ebooking" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Book a class</a>
+			<br>
+	</center>
+
+
+
+</div>
+
+{% endblock %}
+      

@@ -1,0 +1,30 @@
+p.select{
+  text-align: center;
+}
+.Timetable {
+  margin-top: 5%;
+}
+
+table.Timetable1{
+  width: 80%;
+  border-collapse: collapse;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+table.Timetable1 th, table.Timetable1 td {
+  padding: 1%;
+  border: 0.5% solid #ddd;
+}
+
+table.Timetable1 th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  text-align: center;
+}
+
+.error {
+  color: red;
+  margin-top: 5%;
+  text-align: center;
+}

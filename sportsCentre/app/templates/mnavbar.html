@@ -1,0 +1,126 @@
+
+
+<!--
+   Navigation code seperated from base.html file for readable code 
+   First release by hanmoon 
+-->
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark navbar-expand-md navbar-expand-lg">
+   <!-- Container wrapper -->
+   <div class="container-fluid ">
+      <!-- Navbar brand-->
+      {% if loggedIn %}
+      <a class="navbar-brand" href="/managerhome"><font size="+5"><b><i>Olympus Sport Centre</a></font></b></i>
+      {% else %}
+      <a class="navbar-brand"><font size="+5"><b><i>Olumpus Sports Centre</i></b></font></a>
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span> 
+      </button>
+      {% endif %}
+
+         <!-- Navbar items-->
+         <link rel="stylesheet" href={{ url_for('static', filename='css/base.css') }} />
+            <tr>
+                <td line-height: 6px;>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                     <ul class="navbar-nav ms-auto">
+
+                    {% if not loggedIn %}
+                   <div class="dropdown">
+                       <button class="dropbtn">Login</button>
+                       <div id="myDropdown" class="dropdown-content">
+                          <a href="{{ url_for('auth.loginForm') }}">User login</a>
+                          <a href="{{ url_for('auth.eloginForm') }}">Employee login</a>
+     
+                       </div>
+                    </div>
+<!--                      <a href="{{ url_for('auth.loginForm') }}">
+                  <button type="button" class="btn btn-primary me-3">
+                     login
+                  </button>
+                    </a> -->
+                    {% else %}
+                    <div class="dropdown">
+                        <button onclick="myFunction()" class="dropbtn">Hello</button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="/personaldetails">Personal Details</a>
+                            <a href="/mqna">Colleague Help</a>
+                            <hr>
+                            <a href="/logout">Sign Out</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                </td>
+            </tr>
+   </div>
+</nav>
+
+<!-- Search area -->
+<nav class="navbar navbar-expand-md navbar-light">
+  <div class="col-md-8 position-absolute top-50 start-50 translate-middle" >
+     {% if loggedIn %}
+     <form method="POST" action="{{ url_for('main.mSearch') }}">
+        <div class="input-group">
+           <input type="search" class="form-control rounded col-md-8 " placeholder="search item..." id="searchBox" type="text" name="searched" />
+           <button style="border-radius: 5px; background-color: rgb(255, 255, 255)", id="searchButton" type="submit">Search</button>
+         </div>
+     </form>
+     {% endif %}
+  </div>
+</nav>
+
+<!-- Navigation menu -->
+<nav class="navbar navbar-expand-md navbar-light">
+  {% if loggedIn %}
+   <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- ==========================   Collapsible wrapper start =============================== -->
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNavDarkDropdown">
+         <ul class="navbar-nav navbar-right">
+           <li class="nav-item p-2 flex-fill"><a class="nav-link px-3" href="/managerhome"><strong>Inbox</strong></a></li>
+
+            <li class="nav-item dropdown p-2 flex-fill">
+               <a class="nav-link dropdown-toggle px-3" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <strong>Facilities</strong>
+               </a>
+               <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                   <li><a class="dropdown-item" href="/mfacilities">See All Facilities</a></li>
+                   <li><a class="dropdown-item" href="/meditfacilities">Edit Facilities</a></li>
+                   <li><a class="dropdown-item" href="/maddfacilityForm">Add Facilities</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item dropdown p-2 flex-fill">
+               <a class="nav-link dropdown-toggle px-3" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <strong>Activities</strong>
+               </a>
+               <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                   <li><a class="dropdown-item" href="/mactivities">See All Activities</a></li>
+                   <li><a class="dropdown-item" href="/meditactivities">Edit Activities</a></li> 
+                   <li><a class="dropdown-item" href="/maddactivityForm">Add Activities</a></li>
+
+               </ul>
+            </li>
+
+            <li class="nav-item dropdown p-2 flex-fill">
+               <a class="nav-link dropdown-toggle px-3" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <strong>Staff Members</strong>
+               </a>
+               <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                   <li><a class="dropdown-item" href="/esignupForm">Add Staff members</a></li>
+                   <li><a class="dropdown-item" href="/staffmembers">See All Staff members</a></li>
+                   <li><a class="dropdown-item" href="/massignjob">Assign job to staff members</a></li>
+               </ul>
+            </li>
+               <li class="nav-item p-2 flex-fill"><a class="nav-link px-3" href="/usage"><strong>Usage & Sales</strong></a></li>
+            </li>
+         </ul>
+      </div>
+   </div>
+   {% endif %}
+<!-- ============================   Collapsible wrapper end ==================================== -->
+</nav>
+

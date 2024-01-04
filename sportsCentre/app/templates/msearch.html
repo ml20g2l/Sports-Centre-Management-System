@@ -1,0 +1,53 @@
+{% extends "mbase.html" %}{% block content %}
+<html lang="en">
+</head>
+<div style="padding-top: 130px">
+    <h1>Searched Product</h1>
+	<p style="padding-left: 100px">You searched for : <em>{{itemSear}}</em></p>
+</div>
+
+{% for row in fsearchData %}
+    <tr>
+        {% if row[0] == 'facility' %}
+            <td style="padding-bottom: 3px; padding-top: 5px; padding-left: 35px;">
+                {{ row[2] }}
+            </td>
+            <td style="padding-bottom: 3px; padding-top: 5px; padding-left: 35px;">
+                {{ row[4] }}
+            </td>
+            <td style="padding-bottom: 3px; padding-top: 5px; padding-left: 35px;">
+                {{ row[5] }}
+            </td>
+            <td style="padding-bottom: 3px; padding-top: 5px; padding-left: 35px;">
+                {{ row[6] }}
+            </td>
+            <td style="padding-bottom: 3px; padding-top: 5px; padding-left: 35px;">
+                {{ row[7] }}
+            </td>
+        {% elif row[0] == 'membership' %}
+            <td style="padding-bottom: 3px; padding-top: 5px; padding-left: 35px;">
+                {{ row[2] }}
+            </td>
+            <td style="padding-bottom: 3px; padding-top: 5px; padding-left: 35px;">
+                {{ row[7] }}
+            </td>
+        {% else %}
+            <td style="padding-bottom: 3px; padding-top: 5px; padding-left: 35px;">
+                {{ row[3] }}
+            </td>
+            <td style="padding-bottom: 3px; padding-top: 5px; padding-left: 35px;">
+                {{ row[7] }}
+            </td>
+        {% endif %}
+    </tr>
+{% endfor %}
+
+
+
+
+</body>
+</html>
+{% endblock %} 
+
+
+

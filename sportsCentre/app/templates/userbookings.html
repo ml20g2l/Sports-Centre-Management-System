@@ -1,0 +1,41 @@
+{% extends "ebase.html" %}{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Olympus Sports Centre</title>
+    <link rel="stylesheet" href={{ url_for('static', filename='css/table.css') }} />
+</head>
+<center>
+<body>
+	<h2>User Bookings</h2>
+	<table border="1" class="center">
+		<thead class="thead">
+			<tr>
+				<th>Facility</th>
+				<th>Activity</th>
+				<th>Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for booking in bookings %}
+			<tr>
+				<td style="padding-bottom: 3px; padding-top: 5px; padding-left: 35px;">{{ booking[1] }}</td>
+				<td style="padding-bottom: 3px; padding-top: 5px; padding-left: 35px;">{{ booking[2] }}</td>
+				<td style="padding-bottom: 3px; padding-top: 5px; padding-left: 35px;">{{ booking[3] }}</td>
+                <td style="padding-bottom: 3px; padding-top: 5px; padding-left: 35px;">{{ booking[4] }}</td>
+                <td style="padding-bottom: 3px; padding-top: 5px; padding-left: 35px;">{{ booking[5] }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+    <br>
+    <a href="/eallowbooking" class="btn btn-dark">Make another booking for user</a>
+	<a href="/ecart" class="btn btn-dark">Go to cart</a>
+</body>
+</center>
+</html>
+{% endblock %} 
+ 

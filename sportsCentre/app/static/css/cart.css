@@ -1,0 +1,87 @@
+/* Applies margins to the entire table */
+#tableItems {
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+/* Applies margins, height, and float to the item image */
+#itemImage {
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	height: 100px;
+	float: left;
+}
+
+/* Applies margins, height, width, and float to the item name */
+#itemName {
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	height: 100px;
+	width: 200px;
+	float: left;
+}
+
+/* Applies width and float to the item name title */
+#titleName {
+	width: 200px;
+	float: left;
+}
+
+/* Applies float to the item price title */
+#titlePrice {
+	float: left;
+}
+
+/* Applies margins, height, and display to the item price */
+#itemPrice {
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	height: 100px;
+	display: inline-block;
+}
+
+/* Applies margins, height, and display to the images container */
+#images {
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	height: 100px;
+	display: inline-block;
+}
+
+/* Applies height and width to each individual image */
+#image {
+	height: 100px;
+	width: 80px;
+}
+
+/* Applies margins and max-width to the separator */
+#seperator {
+	margin: 20px;
+	max-width: 400px;
+}
+
+/* Applies padding to the total */
+#total {
+	padding-left: 280px;
+}
+
+/* Applies bold font weight to the item name tag */
+#itemNameTag {
+	font-weight: bold;
+}
+
+/* Applies bold font weight and larger font size to the subtotal */
+#subtotal {
+	font-weight: bold;
+	font-size: 20px;
+}

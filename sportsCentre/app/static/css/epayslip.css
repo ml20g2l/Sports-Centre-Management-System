@@ -1,0 +1,21 @@
+/* Center align paragraphs with class "month" */
+p.month{
+    text-align: center;
+}
+
+/* Set left margin for paragraphs with class "salary" */
+p.salary{
+    margin-left: 20%;
+}
+
+/* Center align paragraphs with class "select" */
+p.select{
+    text-align: center;
+}
+
+/* Style paragraphs with class "error" */
+p.error{
+    color: red; /* Set font color to red */
+    text-align: center; /* Center align text */
+}
+

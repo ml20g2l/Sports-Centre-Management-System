@@ -1,0 +1,25 @@
+{% extends "ebase.html" %}{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Olympus Sports Centre</title>
+</head>
+<center>
+<body>
+    <h2>Choose a user</h2>
+    <form method="POST" action="{{ url_for('main.inputuser') }}">
+        <input type="email" name="email" required>
+        <button type="submit" class="btn btn-dark">Continue</button>
+    </form>
+    <div class="text-danger">
+        {% if error %}
+            {{ error }}
+        {% endif %}
+    </div>
+</body>
+</center>
+</html>
+
+
+{% endblock %} 

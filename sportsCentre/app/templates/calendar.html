@@ -1,0 +1,261 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href={{ url_for('static', filename='css/calendar.css') }} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <script src="../static/js/calendar.js" defer></script>
+  </head>
+  <center>
+  <body>
+    <div class="row">
+
+      <div class="center">
+        <div id="calendar"></div>
+      </div>
+
+      <div class="col">
+        <div class="card" style="width: 20rem;">
+          <div class="card-body">
+            <h5 class="card-title"><label for="Day"><font size="+2"><b> Your Day <div id="date"> </div></font></label></b></h5>
+          </div>
+          </br>
+
+          <div class="card-text">
+            <label for="Activities"><font size="+2"><b> Available activities  </font></label></b>
+            <ul class="list-group list-group-flush">
+              <div class="container">
+                <form method="POST" action="{{ url_for('main.booking')}}">
+                  <input type="hidden" id="date-input" name="day">
+              
+                  <div id="event-list"></div>
+                  <input type="hidden" id="event-list" name="eventName">
+              
+                  <br>
+                  <a type="submit" class="p-1 mb-2 bg-black text-white" id="submit-button" href="/booking" style="display: none;">Book</a>
+              </form>
+              
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+    <script>
+    const dateDiv = document.getElementById('date');
+    const dateInput = document.getElementById('date-input');
+
+    // Function to update the value of the hidden input field with the content of the date div
+    function updateDateInput() {
+        dateInput.value = dateDiv.textContent.trim();
+    }
+
+    // Call the function initially to set the input value
+    updateDateInput();
+
+    // Add an event listener to detect changes in the date div element
+    const observer = new MutationObserver(updateDateInput);
+    observer.observe(dateDiv, { childList: true });
+
+    // Get references to the event list and submit button elements
+    const eventList = document.getElementById('event-list');
+    const submitButton = document.getElementById('submit-button');
+
+    // Function to show or hide the submit button based on the event list content
+    function updateSubmitButtonVisibility() {
+        if (eventList.innerHTML.trim() === '') {
+            submitButton.style.display = 'none';
+        } else {
+            submitButton.style.display = 'block';
+        }
+    }
+
+    // Add an event listener to detect changes in the event list element
+    const observer2 = new MutationObserver(updateSubmitButtonVisibility);
+    observer2.observe(eventList, { childList: true });
+
+    // Call the function initially to set the submit button visibility
+    updateSubmitButtonVisibility();
+
+      
+  </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+    <!-- comment link 13 and 14 and uncomment line 16 to check google calendar -->
+    <!-- <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Europe%2FLondon&showTabs=1&showPrint=1&showDate=1&src=b2x5bXB1c3Nwb3J0c2NlbnRyZTEyM0BnbWFpbC5jb20&src=NjJmMmI1N2EyNjQ3ZGJjYzgwZTg3ZDBiMzhhNWYzYzFmOTE2MDhiMDZhMTdlMDg0OGMyODM4ZWZhMWU5ODIwNkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=Y2FjNThjYWJiOWU2ODViMjM1NTQxNWM5MjVjZDdhODM3OTk0YTliNjM3MjBmMmRmOGJkZDk0ODA4NjE1OTEyM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=YWI5OTA1YWYyNDEwZDNhY2Y2MjAwMzA0Zjc0M2FmNTg1MWNiYzI2YWIxMjM3MTJkY2FhODAxNWMxZjkwOGNlMUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%237986CB&color=%23A79B8E&color=%23C0CA33" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
+  </body>
+</center>
+
+
+<footer style="background-color: rgb(54, 54, 54); color:#fff">
+  <hr>
+  <span style="border: 2px solid rgb(255, 255, 255); padding: 0 40px">Contact Info</span><br>
+  <span><strong><i>Email:</span><br></i></strong>
+  <span><a style="text-decoration: none; color:#fff" href="mailto:sc21ar@leeds.ac.uk">sc21ar@leeds.ac.uk</a></span><br>
+  <span><a style="text-decoration: none; color:#fff" href="mailto:sc21h2h@leeds.ac.uk">sc21h2h@leeds.ac.uk</a></span><br>
+  <span><a style="text-decoration: none; color:#fff" href="mailto:ml20g2l@leeds.ac.uk">ml20g2l@leeds.ac.uk</a></span><br>
+  <span><a style="text-decoration: none; color:#fff" href="mailto:sc21nl@leeds.ac.uk">sc21nl@leeds.ac.uk</a></span><br>
+  <span><a style="text-decoration: none; color:#fff" href="mailto:sc21samg@leeds.ac.uk">sc21samg@leeds.ac.uk</a></span><br><br>
+  <span><b>
+    General Availability:
+    Monday to Friday 9am – 5pm
+    </b>
+  </span>
+
+  <hr>
+  <div class="container12">
+    <div class="right_social_media">
+        <h5>Follow our social media:</h5>
+        <h6><ul style="list-style: none;">
+          <li><i><strong>Instagram: </strong></i><a style="text-decoration: none; color:#fff" href="https://www.instagram.com/olympussportcentre/">Instagram Handle</a></li>
+          <li><i><strong>Facebook: </strong></i><a style="text-decoration: none; color:#fff" href="https://www.facebook.com/people/Olympus-Sport-Centre/100090985419485/">Facebook Handle</a></li>
+          <li><i><strong>Twitter: </strong></i><a style="text-decoration: none; color:#fff" href="https://twitter.com/OlympusSportLds">Twitter Handle</a></li>
+          <li><i><strong>Youtube: </strong></i><a style="text-decoration: none; color:#fff" href="https://www.youtube.com/channel/UC89p2J9l_d0eQYuKNhS23tA">Youtube Handle</a></li>
+        </ul></h6>
+        <ul style="list-style: none;">
+          <style>
+            .list-group-item {
+              display: block;
+              padding: .75rem 1.25rem;
+              margin-bottom: -1px;
+              background-color: #fff;
+              border: 1px solid rgba(0,0,0,.125);
+            }
+
+            .list-group-item:first-child {
+              border-top-left-radius: .25rem;
+              border-top-right-radius: .25rem;
+            }
+
+            .list-group-item:last-child {
+              margin-bottom: 0;
+              border-bottom-right-radius: .25rem;
+              border-bottom-left-radius: .25rem;
+            }
+
+            .list-group-item div {
+              margin-bottom: 10px;
+              font-weight: bold;
+            }
+
+            .list-group-item div:last-child {
+              margin-bottom: 0;
+            }
+            .container {
+              position: relative;
+            }
+                
+            #calendar {
+                position: relative;
+                z-index: 2;
+            }
+
+            .card {
+                position: absolute;
+                z-index: 1;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            /* Popup container - can be anything you want */
+            .popup {
+              position: relative;
+              display: inline-block;
+              cursor: pointer;
+              -webkit-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              user-select: none;
+            }
+            
+            /* The actual popup */
+            .popup .popuptext {
+              visibility: hidden;
+              width: 160px;
+              background-color: #555;
+              color: #fff;
+              text-align: center;
+              border-radius: 6px;
+              padding: 8px 0;
+              position: absolute;
+              z-index: 1;
+              bottom: 125%;
+              left: 50%;
+              margin-left: -80px;
+            }
+            
+            /* Popup arrow */
+            .popup .popuptext::after {
+              content: "";
+              position: absolute;
+              top: 100%;
+              left: 50%;
+              margin-left: -5px;
+              border-width: 5px;
+              border-style: solid;
+              border-color: rgb(255, 255, 255) transparent transparent transparent;
+            }
+            
+            /* Toggle this class - hide and show the popup */
+            .popup .show {
+              visibility: visible;
+              -webkit-animation: fadeIn 1s;
+              animation: fadeIn 1s;
+            }
+            
+            /* Add animation (fade in the popup) */
+            @-webkit-keyframes fadeIn {
+              from {opacity: 0;} 
+              to {opacity: 1;}
+            }
+            
+            @keyframes fadeIn {
+              from {opacity: 0;}
+              to {opacity:1 ;}
+            }
+            </style>                        
+            <div class="popup" onclick="myFunction()">Opening Hours>
+              <span class="popuptext" id="myPopup">
+                Open: 8:00 AM <br>
+                Closes: 10:00 PM
+              </span>
+            </div>
+            
+            <script>
+            // When the user clicks on div, open the popup
+            function myFunction() {
+              var popup = document.getElementById("myPopup");
+              popup.classList.toggle("show");
+            }
+            </script>
+            
+
+
+          <li><a style="background-color: rgb(255, 255, 255); padding: 0; margin: 5px 0"href="/aboutUs" class="btn">About us></a></li>
+        </ul>
+    </div>
+  </div>
+  <form action="/setcookie" method="POST">
+    {% if loggedIn %}
+    <h1 style="padding: 0px; padding-left: 350px">Set cookie</h1>
+         <p style="margin-left: 625px; margin-bottom: 7px"><input style="border-radius: 8px; background-color: rgb(255, 255, 255); color:black" type='submit' value='Set Cookie'/></p>
+     <a style="text-decoration: none; color:black; margin-top: 0px;  margin-left: 613px; background-color: rgb(255, 255, 255); border-radius: 8px; padding-left: 5px; padding-right: 5px" href="/getcookie">see cookie value</a>
+    {% endif %}
+  </form>
+  <span style="text-align: right;">
+  <a style="text-decoration: none; display: block; margin-top: -23px; color:#fff" href="/privacy">Privacy Policy</a>
+  </span>
+</footer>
+
+
+
+</html>
+<!--ref: https://www.codingnepalweb.com/dynamic-calendar-html-css-javascript/-->
+{% endblock %}
+
+
+

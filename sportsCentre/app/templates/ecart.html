@@ -1,0 +1,40 @@
+{% extends "ebase.html" %}{% block content %}
+<html>
+<head>
+<title>Your Cart</title>
+<link rel="stylesheet" href={{url_for('static', filename='css/cart.css')}} />
+</head>
+<body style="background-image: url({{ url_for('static', filename='images/bg.png') }}); background-repeat: no-repeat; background-position: center; background-size: cover; height: 100%">
+<div id="cartItems">
+  <h2 style="margin-left: 400px">User Cart: Bookings</h2>
+  <div id="tableItems" style="margin-left: 400px">
+    {% for data in rows1 %}
+      {% for row in data %}
+      <div>
+        <div id="itemName">
+          <span id="itemNameTag">Facility: {{row[0]}}</span><br>
+          <span id="itemNameTag">Activity: {{row[1]}}</span><br>
+          <span id="itemNameTag">Day: {{row[3]}}</span><br>
+          <span id="itemNameTag">Start Time: {{row[4]}}</span><br>
+          <span id="itemNameTag">End Time: {{row[5]}}</span><br>
+          <!-- <a href="/removeFromCart?bookingId={{row[0]}}">Remove</a> -->
+        </div>
+        <div id="itemPrice">
+          £{{row[6]}}
+        </div>
+        <hr id="seperator">
+      </div>
+      {% endfor %}
+    {% endfor %}
+    <div id="total">
+      <hr id="seperator">
+      <span id="subtotal">Subtotal</span> : £{{totalPrice}}
+    </div>
+  </div>
+</div>
+<a href="{{ url_for('main.echeckout') }}" style="text-decoration: none; background-color: aqua; color: black; margin-left: 650px; padding: 0px 10px 0px 10px; border-radius: 8px">Proceed to checkout</a>
+</body>
+</html>
+
+
+{% endblock %} 

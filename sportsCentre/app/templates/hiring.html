@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<head>
+	<title>Olympus Sports Centre</title>
+	<link rel="stylesheet" href={{ url_for('static', filename='css/hiring.css') }} />
+</head>
+<body>
+	<div class="page-wrap">
+		<!--Page content starts here-->
+		<h1 style="text-align:center"><strong>CAREERS SEARCH</strong></h1>
+		<h2 style="text-align:center">Head over to the careers board to see all current vacancies.</h2>
+			<div class="image-container">
+				<!--Image 1 (fitness team)-->
+				<div class="image-wrapper">
+				<img src="{{ url_for('static', filename='images/fitness_team.png') }}" alt="fitness team">
+				<div class="caption">
+					<h2><strong>FITNESS TEAM</strong></h2>
+					<div class="textbox">
+					<p>At Olympus Sports Centre, our Fitness Coaches and Gym Instructors are crucial in ensuring our members receive the ultimate fitness experience. If you are interested in part-time employment, we offer a secure and beneficial opportunity to join the team at the UK's favourite gym. Additionally, we provide development programmes to aid your career progression, should your goal be to become part of our gym management team. For Personal Trainers (PTs), Olympus Sports Centre offers excellent facilities to assist members in achieving their fitness goals, allowing PTs to grow their businesses. We take pride in our exceptional training and support for PTs at Olympus Sports Centre.</p>
+					</div>
+				</div>
+				</div>
+
+				<!--Image 2 (gym management team)-->
+				<div class="image-wrapper">
+				<img src="{{ url_for('static', filename='images/gym_management.png') }}" alt="gym management">
+				<div class="caption">
+					<h2><strong>GYM MANAMEMENT</strong></h2>
+					<div class="textbox">
+					<p>If you are interested in a role as a Gym Manager or Assistant Gym Manager, you will be responsible for ensuring that members of the Olympus Sports Centre receive an exceptional experience. You will need to provide strong leadership to your Fitness Team, enabling them to perform their duties to the best of their ability. Your leadership team will provide you with the necessary support to accomplish this and opportunities to develop and advance your career within Olympus Sports Centre. Additionally, you will be free to incorporate your personality and energy into your gym, allowing you to be creative and expressive. If you want to work with a dedicated team, learn new skills, advance your career, and make a difference, look no further than Olympus Sports Centre.</p>
+					</div>
+				</div>
+				</div>
+
+				<!--Image 3 (central support team)-->
+				<div class="image-wrapper">
+				<img src="{{ url_for('static', filename='images/central_support.png') }}" alt="central support">
+				<div class="caption">
+					<h2><strong>CENTRAL SUPPORT</strong></h2>
+					<div class="textbox">
+					<p>We are the largest gym operator in the UK with a mission to inspire a healthier nation, and with ambitious plans for growth, we need the right people to help us achieve our goals. As an international Group and a leading European operator, our size provides ample opportunities for growth and acceleration of your career. While our offices are located in Leeds, we offer flexibility for most support roles, allowing collaboration in person or remotely. Our support teams are at the heart of our gyms and provide tools, thought leadership, and expertise across all disciplines in functional specialist areas.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br><br><br><br><br><br><br><br>
+</body>
+<footer style="background-color: rgb(54, 54, 54); color:#fff">
+	<hr>
+	<span style="border: 2px solid rgb(255, 255, 255); padding: 0 40px">Contact Info</span><br>
+	<span><strong><i>Email:</span><br></i></strong>
+	<span><a style="text-decoration: none; color:#fff" href="mailto:sc21ar@leeds.ac.uk">sc21ar@leeds.ac.uk</a></span><br>
+	<span><a style="text-decoration: none; color:#fff" href="mailto:sc21h2h@leeds.ac.uk">sc21h2h@leeds.ac.uk</a></span><br>
+	<span><a style="text-decoration: none; color:#fff" href="mailto:ml20g2l@leeds.ac.uk">ml20g2l@leeds.ac.uk</a></span><br>
+	<span><a style="text-decoration: none; color:#fff" href="mailto:sc21nl@leeds.ac.uk">sc21nl@leeds.ac.uk</a></span><br>
+	<span><a style="text-decoration: none; color:#fff" href="mailto:sc21samg@leeds.ac.uk">sc21samg@leeds.ac.uk</a></span><br><br>
+	<span><b>
+	  General Availability:
+	  Monday to Friday 9am – 5pm
+	  </b>
+	</span>
+  
+	<hr>
+	<div class="container12">
+	  <div class="right_social_media">
+		  <h5>Follow our social media:</h5>
+		  <h6><ul style="list-style: none;">
+			<li><i><strong>Instagram: </strong></i><a style="text-decoration: none; color:#fff" href="https://www.instagram.com/olympussportcentre/">Instagram Handle</a></li>
+			<li><i><strong>Facebook: </strong></i><a style="text-decoration: none; color:#fff" href="https://www.facebook.com/people/Olympus-Sport-Centre/100090985419485/">Facebook Handle</a></li>
+			<li><i><strong>Twitter: </strong></i><a style="text-decoration: none; color:#fff" href="https://twitter.com/OlympusSportLds">Twitter Handle</a></li>
+			<li><i><strong>Youtube: </strong></i><a style="text-decoration: none; color:#fff" href="https://www.youtube.com/channel/UC89p2J9l_d0eQYuKNhS23tA">Youtube Handle</a></li>
+		  </ul></h6>
+		  <ul style="list-style: none;">
+			<style>
+			  /* Popup container - can be anything you want */
+			  .popup {
+				position: relative;
+				display: inline-block;
+				cursor: pointer;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			  }
+			  
+			  /* The actual popup */
+			  .popup .popuptext {
+				visibility: hidden;
+				width: 160px;
+				background-color: #555;
+				color: #fff;
+				text-align: center;
+				border-radius: 6px;
+				padding: 8px 0;
+				position: absolute;
+				z-index: 1;
+				bottom: 125%;
+				left: 50%;
+				margin-left: -80px;
+			  }
+			  
+			  /* Popup arrow */
+			  .popup .popuptext::after {
+				content: "";
+				position: absolute;
+				top: 100%;
+				left: 50%;
+				margin-left: -5px;
+				border-width: 5px;
+				border-style: solid;
+				border-color: rgb(255, 255, 255) transparent transparent transparent;
+			  }
+			  
+			  /* Toggle this class - hide and show the popup */
+			  .popup .show {
+				visibility: visible;
+				-webkit-animation: fadeIn 1s;
+				animation: fadeIn 1s;
+			  }
+			  
+			  /* Add animation (fade in the popup) */
+			  @-webkit-keyframes fadeIn {
+				from {opacity: 0;} 
+				to {opacity: 1;}
+			  }
+			  
+			  @keyframes fadeIn {
+				from {opacity: 0;}
+				to {opacity:1 ;}
+			  }
+			  </style>                        
+			  <div class="popup" onclick="myFunction()">Opening Hours>
+				<span class="popuptext" id="myPopup">
+				  Open: 8:00 AM <br>
+                                  Closes: 10:00 PM
+				</span>
+			  </div>
+			  
+			  <script>
+			  // When the user clicks on div, open the popup
+			  function myFunction() {
+				var popup = document.getElementById("myPopup");
+				popup.classList.toggle("show");
+			  }
+			  </script>
+			  
+  
+  
+			<li><a style="background-color: rgb(255, 255, 255); padding: 0; margin: 5px 0"href="/aboutUs" class="btn">About us></a></li>
+		  </ul>
+	  </div>
+	</div>
+	<form action="/setcookie" method="POST">
+	  {% if loggedIn %}
+	  <h1 style="padding: 0px; padding-left: 350px">Set cookie</h1>
+		   <p style="margin-left: 625px; margin-bottom: 7px"><input style="border-radius: 8px; background-color: rgb(255, 255, 255); color:black" type='submit' value='Set Cookie'/></p>
+	   <a style="text-decoration: none; color:black; margin-top: 0px;  margin-left: 613px; background-color: rgb(255, 255, 255); border-radius: 8px; padding-left: 5px; padding-right: 5px" href="/getcookie">see cookie value</a>
+	  {% endif %}
+	</form>
+	<span style="text-align: right;">
+	<a style="text-decoration: none; display: block; margin-top: -23px; color:#fff" href="/privacy">Privacy Policy</a>
+	</span>
+  </footer>
+
+{% endblock%}
+
+
+<!-- Dreamstime. (n.d.). Gym manager stock photos and images. Retrieved from https://www.dreamstime.com/photos-images/gym-manager.html -->
+<!-- Maryville University. (n.d.). Fitness Manager Job Description. Retrieved from https://online.maryville.edu/online-bachelors-degrees/exercise-science/careers/fitness-manager-job-description/ -->
+<!-- PureGym. (n.d.). Careers. Retrieved from https://www.puregym.com/careers/ -->
+<!-- PureGym. (n.d.). Job descriptions. Retrieved from https://www.puregym.com/careers/ -->
+<!-- RNT Fitness. (n.d.). Retrieved from https://www.rntfitness.co.uk/ -->
